@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}Бранирование билета{% endblock %}
+
+{% block body %}
+    <h1>Бранирование билета</h1>
+    <hr>
+    {% for ticket in ticketRepository %}
+        flight: {{ ticket.flight }}
+        price: {{ ticket.price }}
+        status: {{ ticket.status }}
+        {{ ticket.passenger }}
+        {{ ticket.departureTime}}
+        <hr>
+    {% endfor %}
+{% endblock %}

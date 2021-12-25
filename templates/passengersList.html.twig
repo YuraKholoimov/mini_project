@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Список пассажиров{% endblock %}
+
+{% block body %}
+    <h1>Список пассажиров</h1>
+
+    {% for passenger in passengersList %}
+        <strong>ФИО:</strong> {{ passenger.surname }} {{ passenger.name }} {{ passenger.secondName }}
+        <strong>Паспорт:</strong>  {{ passenger.passportSerial }} {{ passenger.passportNumber }}
+        <hr>
+    {% endfor %}
+
+
+{% endblock %}
