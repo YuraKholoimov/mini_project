@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-use App\Repository\TicketRepository;
+use App\DTO\BookingDTO;
+use App\Form\Type\BookingType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,26 +15,34 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class BookingController extends AbstractController
 {
-//    /**
-//     * @Route("/"  name="booking")
-//     */
-//    private function booking()
-//    {
-//
-//
-//    }
-
     /**
-     * @Route("/list", name="list")
+     * @Route("/",  name="booking")
      */
-    public function getListAction(TicketRepository $ticketRepository): Response
+    public function booking(Request $request): Response
     {
-        $ticketRepository = $ticketRepository->findAll();
-//        dd($ticketRepository);
+        $bookingDTO = new BookingDTO();
 
-        return $this->render('bookingSuccess.html.twig', [
-            'ticketRepository' => $ticketRepository,
+        $form = $this->createForm(BookingType::class, $bookingDTO, [
+            'action' => $this->generateUrl('booking'),
         ]);
+
+        return $this->renderForm('booking.html.twig', [
+            'form' => $form,
+        ]);
+
     }
+
+//    /**
+//     * @Route("/list", name="list")
+//     */
+//    public function getListAction(TicketRepository $ticketRepository): Response
+//    {
+//        $ticketRepository = $ticketRepository->findAll();
+////        dd($ticketRepository);
+//
+//        return $this->render('bookingSuccess.html.twig', [
+//            'ticketRepository' => $ticketRepository,
+//        ]);
+//    }
 
 }

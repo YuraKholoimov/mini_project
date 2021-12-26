@@ -2,23 +2,24 @@
 
 namespace App\DTO;
 
+use App\Entity\Passenger;
+use App\Entity\Tiket;
+
 class BookingDTO
 {
 
-    private ?string $flight;
-    private ?string $passenger;
-    private \DateTime $dateTime;
+    private $passenger;
+    private $dateTime;
 
-
-    public function getFlight(): ?string
-    {
-        return $this->flight;
-    }
-
-    public function setFlight(?string $flight): void
-    {
-        $this->flight = $flight;
-    }
+//    public function makeFromEntity(Passenger $passenger)
+//    {
+//        $dto = new self();
+//
+//        $dto->setPassenger($passenger->getName());
+//
+//        return $dto;
+//
+//    }
 
     public function getPassenger(): ?string
     {
@@ -30,12 +31,12 @@ class BookingDTO
         $this->passenger = $passenger;
     }
 
-    public function getDateTime(): \DateTime
+    public function getDateTime()
     {
         return $this->dateTime;
     }
 
-    public function setDateTime(\DateTime $dateTime): void
+    public function setDateTime($dateTime): void
     {
         $this->dateTime = $dateTime;
     }

@@ -37,12 +37,16 @@ class Passenger
     /**
      * @ORM\Column(name="passport_serial", type="integer")
      */
+
+
     private int $passportSerial;
 
     /**
      * @ORM\Column(name="passport_number", type="integer")
      */
     private int $passportNumber;
+
+    private $fullName;
 
     public function __construct(string $surname, string $name, string $secondName, int $passportNumber, int $passportSerial)
     {
@@ -51,6 +55,7 @@ class Passenger
         $this->secondName = $secondName;
         $this->passportSerial = $passportSerial;
         $this->passportNumber = $passportNumber;
+        $this->fullName = $surname . $name . $secondName;
 
     }
     /**
@@ -122,4 +127,17 @@ class Passenger
     {
         $this->passportNumber = $passportNumber;
     }
+
+
+    public function getFullName()
+    {
+        return $this->fullName;
+    }
+
+    public function setFullName(string $fullName): void
+    {
+        $this->fullName = $fullName;
+    }
+
+
 }

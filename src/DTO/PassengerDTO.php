@@ -6,13 +6,11 @@ use App\Entity\Passenger;;
 
 class PassengerDTO
 {
-
     private ?string $surname;
     private ?string $name;
     private ?string $secondName;
     private ?string $passportSerial;
     private ?string $passportNumber;
-
 //    public function __construct(string $surname, string $name, string $secondName, int $passportNumber, int $passportSerial)
 //    {
 //        $this->surname = $surname;
@@ -21,7 +19,6 @@ class PassengerDTO
 //        $this->passportSerial = $passportSerial;
 //        $this->passportNumber = $passportNumber;
 //    }
-
     public static function createFromEntity(Passenger $passenger): self
     {
         $dto = new self();
@@ -40,24 +37,20 @@ class PassengerDTO
         return $this->surname;
     }
 
-
     public function setSurname(?string $surname): void
     {
         $this->surname = $surname;
     }
-
 
     public function getName(): ?string
     {
         return $this->name;
     }
 
-
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
-
 
     public function getSecondName(): ?string
     {
@@ -69,31 +62,23 @@ class PassengerDTO
         $this->secondName = $secondName;
     }
 
-
     public function getPassportSerial(): ?string
     {
         return $this->passportSerial;
     }
-
 
     public function setPassportSerial(?string $passportSerial): void
     {
         $this->passportSerial = $passportSerial;
     }
 
-
     public function getPassportNumber(): ?string
     {
         return $this->passportNumber;
     }
 
-
     public function setPassportNumber(?string $passportNumber): void
     {
         $this->passportNumber = $passportNumber;
     }
-
-
-
-
 }

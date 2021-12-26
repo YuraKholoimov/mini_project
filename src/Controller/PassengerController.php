@@ -28,7 +28,7 @@ class PassengerController extends AbstractController
 
 
     /**
-     * @Route("/", name="addPassengerForm")
+     * @Route("/", name="addPassenger")
      *
      */
     public function addPassengerAction(Request $request): Response
@@ -36,7 +36,7 @@ class PassengerController extends AbstractController
         $passengerDTO = new PassengerDTO();
 
         $form = $this->createForm(AddPassengerType::class, $passengerDTO, [
-        'action' => $this->generateUrl('addPassengerForm'),
+        'action' => $this->generateUrl('addPassenger'),
         ]);
 
         $form->handleRequest($request);
